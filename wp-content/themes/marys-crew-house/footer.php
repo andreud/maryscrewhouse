@@ -13,22 +13,137 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'marys-crew-house' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'marys-crew-house' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'marys-crew-house' ), 'marys-crew-house', '<a href="http://underscores.me/">Andres Hernandez</a>' );
-			?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+
+
+	<!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Contact Us</h2>
+            <h3 class="section-subheading text-muted">To get a quote or with any questions.</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <form id="contactForm" name="sentMessage" novalidate>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <input class="form-control" id="arrival" type="text" placeholder="Arival Date (Optional)" >
+                      </div>
+                      <div class="col-sm-6">
+                        <input class="form-control" id="departure" type="text" placeholder="Departure Date (Optional)" >  
+                      </div>
+                    </div>
+                    
+                  </div>
+
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option value="none">Prefered House (Optional)</option>                      
+                      <option value="house 1">House 1</option>
+                      <option value="house 2">House 2</option>
+                      <option value="house 3">House 3</option>
+                    </select>
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <textarea class="form-control" id="message" placeholder="Any details, inquiries or questions (Optional)"></textarea>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Marys Crew House 2017</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="<?=get_template_directory_uri(); ?>/js/jquery.min.js"></script>
+    <script src="<?=get_template_directory_uri(); ?>/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="<?=get_template_directory_uri(); ?>/js/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="<?=get_template_directory_uri(); ?>/js/jqBootstrapValidation.js"></script>
+    <script src="<?=get_template_directory_uri(); ?>/js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="<?=get_template_directory_uri(); ?>/js/agency.js"></script>
 
 </body>
 </html>
