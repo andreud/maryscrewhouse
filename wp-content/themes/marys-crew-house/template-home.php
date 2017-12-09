@@ -24,6 +24,7 @@ get_header(); ?>
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
       <div class="container">
+        
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase"><? the_field('houses_heading') ?></h2>
@@ -31,53 +32,34 @@ get_header(); ?>
               <? the_field('houses_content') ?>
           </div>
         </div>
+        
         <div class="row">
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
+          
+          <? 
+            $houses = get_field('houses_houses');
+            foreach ($houses as $key => $house) :
+              $house_img_url = get_the_post_thumbnail_url($house->ID);
+            ?> 
+              
+              <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fa fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img class="img-fluid" src="<?= $house_img_url ; ?>" alt="">
+                </a>
+                <div class="portfolio-caption">
+                  <h4><?= $house->post_title;   ?></h4>
+                  <p class="text-muted">
+                    <?= $house->post_content;   ?>
+                  </p>
                 </div>
               </div>
-              <img class="img-fluid" src="img/marys/house1/SideYard_500.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>House 1</h4>
-              <p class="text-muted">
-                816 SE 12th Street Fort Lauderdale, FL, 33316-2008 
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/marys/house2/536769_700.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>House 2</h4>
-              <p class="text-muted">814 SE 18th Ct Fort Lauderdale, FL, 33316-2008 </p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/marys/house3/536770_700.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>House 3</h4>
-              <p class="text-muted">
-                814 SE 18th Ct Fort Lauderdale, FL, 33316-2008 
-              </p>
-            </div>
-          </div>
+            <?
+            endforeach;
+           ?>
           
         </div>
       </div>
@@ -192,87 +174,29 @@ get_header(); ?>
             <h3 class="section-subheading text-muted"><? the_field('services_intro_text') ?></h3>
           </div>
         </div>
+
         <div class="row text-center">
-          <div class="col-md-2">
+          <? the_field('services_content'); ?>
+        </div>
+
+
+        <div class="row text-center">
+
+           <? 
+            $features = get_field('services_features');
+            foreach ($features as $key => $feature) :
+              //$house_img_url = get_the_post_thumbnail_url($house->ID);
+            ?> 
+            <div class="col-md-2">
             <span class="fa-stack fa-2x">
               <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-wifi fa-stack-1x fa-inverse"></i>
+              <i class="fa <? the_field('icon_code',$feature->ID); ?> fa-stack-1x fa-inverse"></i>
             </span>
-            <!-- <h4 class="service-heading">E-Commerce</h4> -->
-            <p class="text-muted">Full free internet and WI-FI access in all Apartments.</p>
-          </div>
-          <div class="col-md-2">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-tv fa-stack-1x fa-inverse"></i>
-            </span>
-            <p class="text-muted">Large TV`s with cable access in every room.</p>
-          </div>
-          <div class="col-md-2">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-cutlery fa-stack-1x fa-inverse"></i>
-            </span>
-            <p class="text-muted">Large fully functional kitchens in all houses.</p>
+            <p class="text-muted"><?= $feature->post_content; ?></p>
           </div>
 
-          <div class="col-md-2">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-arrows-alt fa-stack-1x fa-inverse"></i>
-            </span>
-            <p class="text-muted">Large community living rooms in all housesv</p>
-          </div>
-
-          <div class="col-md-2">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-thermometer-full fa-stack-1x fa-inverse"></i>
-            </span>
-            <p class="text-muted">Fully Heated swimming pool at House 1</p>
-          </div>
-
-          <div class="col-md-2">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-heartbeat fa-stack-1x fa-inverse"></i>
-            </span>
-            <p class="text-muted">Exercise equipment.</p>
-          </div>
-
-          <div class="col-md-2">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-cab fa-stack-1x fa-inverse"></i>
-            </span>
-            <p class="text-muted">Free pick up when you arrive in town.</p>
-          </div>
-
+          <?php endforeach; ?>
           
-
-          <div class="col-md-2">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-eraser fa-stack-1x fa-inverse"></i>
-            </span>
-            <p class="text-muted">Washing machines and dryers in all houses.</p>
-          </div>
-
-          <div class="col-md-2">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-            </span>
-            <p class="text-muted">Personal lockers for valuables.</p>
-          </div>
-
-          <div class="col-md-2">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-free-code-camp fa-stack-1x fa-inverse"></i>
-            </span>
-            <p class="text-muted">Barbecue and outdoor seating areas in all Houses.</p>
-          </div>
 
         </div>
       </div>
