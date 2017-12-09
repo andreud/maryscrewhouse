@@ -207,77 +207,43 @@ get_header(); ?>
     <!-- About -->
     <section id="about">
       <div class="container">
+        
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase"><? the_field('about_heading') ?></h2>
             <h3 class="section-subheading text-muted"><? the_field('about_content') ?></h3>
           </div>
         </div>
+
         <div class="row">
           <div class="col-lg-12">
             <ul class="timeline">
-              <li>
-                <div class="timeline-image">
-                  <img class="img-fluid" src="http://www.maryscrewhouse.com/sitebuilder/images/Harald_and_Martin_doing_some_construction-399x296.jpg" alt="">
+              
+              <? 
+             // $blog_posts = get_posts(['posts_per_page' => 5]);
+              $blog_posts = get_field('about_posts');
+              foreach ($blog_posts as $key => $blog_post) : 
+                  $panel_side_class = ($key%2!=0) ? 'timeline-inverted' : '';
+                  $panel_image_url = get_the_post_thumbnail_url($blog_post->ID);
+
+              ?>
+              <li class="<?= $panel_side_class; ?>">
+                <div class="timeline-image" style="background-image: url(<?= $panel_image_url; ?>)">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>2003</h4>
-                    <h4 class="subheading">Our Humble Beginnings</h4>
+                    <h4><?= the_date($blog_post->ID) ?></h4>
+                    <h4 class="subheading"><?= $blog_post->post_title; ?></h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">Harald and Martin putting together some desks</p>
+                    <p class="text-muted"><?= $blog_post->post_content; ?></p>
                   </div>
                 </div>
               </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded img-fluid" src="http://www.maryscrewhouse.com/sitebuilder/images/Emily_and_our_turkey-449x334.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>2006</h4>
-                    <h4 class="subheading">The owner</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Stepping into Mary's, you always know you'll have unforgettable memories and laughter that never stops! -Emily King</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="timeline-image">
-                  <img class="rounded img-fluid" src="http://www.maryscrewhouse.com/sitebuilder/images/h_s_502-392x291.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>2008</h4>
-                    <h4 class="subheading">Happy Birthday</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">I had the greatest times here! Thanks
-                      for the best birthday party ever, I will
-                      always be coming back when I need a place to stay!
-                      -Michelle Lundin</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded img-fluid" src="http://www.maryscrewhouse.com/sitebuilder/images/What_a_lazy_bunch_eh_-351x259.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>2014</h4>
-                    <h4 class="subheading"></h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Meet great people; find a great job;
-close to all the sailing action; Mary's
-crew house is the only way to go!
-            -Barry McIntosh</p>
-                  </div>
-                </div>
-              </li>
+
+            <? endforeach; ?>
+        
+              
               <li class="timeline-inverted">
                 <div class="timeline-image">
                   <h4>Be Part
