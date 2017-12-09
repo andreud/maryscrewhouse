@@ -9,17 +9,12 @@ get_header(); ?>
 
 
 <!-- Header -->
-<header class="masthead">
+<header class="masthead" style="background-image:url(<? the_field('intro_background') ?>)" >
   <div class="container">
     <div class="intro-text">
-      <img src="img/marys/crayonBlueHouse.gif" class="main-logo">
-      <div class="intro-heading text-uppercase">Welcome to Mary's Crew House!</div>
-      <div class="intro-lead-in">
-          816 SE 12th Street <br>
-          Fort Lauderdale, Florida   33316-2008  
-      </div>
-      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#portfolio">Explore Houses</a>
-      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#contact">Get a Quote</a>
+      <img src="<? the_field('intro_logo') ?>" class="main-logo">
+      <div class="intro-heading text-uppercase"><? the_field('intro_heading') ?></div>
+      <? the_field('intro_content') ?>
     </div>
   </div>
 </header>
@@ -31,10 +26,9 @@ get_header(); ?>
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Houses Tour</h2>
+            <h2 class="section-heading text-uppercase"><? the_field('houses_heading') ?></h2>
             <h3 class="section-subheading text-muted">
-              Pictures and 360 views of our houses. 
-              <br>You can also check out <a class="js-scroll-trigger" href="#services">What is available on our houses</a> </h3>
+              <? the_field('houses_content') ?>
           </div>
         </div>
         <div class="row">
@@ -194,9 +188,8 @@ get_header(); ?>
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">What is available</h2>
-            <h3 class="section-subheading text-muted">All the amenities you could ask for, and more. <br>
-              With two apartments located right off 17th Street in Fort Lauderdale, Florida, <br> you are also <strong>close to all the Crew Agencies and Marinas</strong>.</h3>
+            <h2 class="section-heading text-uppercase"><? the_field('services_heading') ?></h2>
+            <h3 class="section-subheading text-muted"><? the_field('services_intro_text') ?></h3>
           </div>
         </div>
         <div class="row text-center">
@@ -292,18 +285,8 @@ get_header(); ?>
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading text-muted">Mary's Crew Houses are fully functional crew houses which opened in September 2003. We provide accommodation to crew members who are new and old to the
-yachting industry. Not only do you have an excellent place to stay while looking for
-a job, but you can always find help from the many people who have either just
-started in the industry or have been in it for years. You'll make the best of friends
-from all over the world, and always have a nice home to come back to, when either
-needing a break or needing to once again look for a crew job.
-After a day's work, you can come home, have a swim in the heated pool, or enjoy
-one of the many dinner get-togethers that are held regularly at the houses. Great
-contacts are made through these crew houses, and great times are had.
-If you're looking for crew or accommodation, stop by or give us a call. Click on the
-Contact Us icon for contact information</h3>
+            <h2 class="section-heading text-uppercase"><? the_field('about_heading') ?></h2>
+            <h3 class="section-subheading text-muted"><? the_field('about_content') ?></h3>
           </div>
         </div>
         <div class="row">
