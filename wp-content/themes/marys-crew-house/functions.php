@@ -120,12 +120,20 @@ function marys_crew_house_scripts() {
 	wp_enqueue_style( 'marys-crew-house-style', get_stylesheet_uri() );
 
 	//wp_enqueue_script( 'marys-crew-house-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	//wp_enqueue_script( 'marys-crew-house-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
 	/*if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}*/
+
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'agency-bootstrap-bundle', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'agency-jquery-easing', get_template_directory_uri() . '/js/jquery.easing.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'agency-bs-validation', get_template_directory_uri() . '/js/jqBootstrapValidation.js', array(), '20151215', true );
+	wp_enqueue_script( 'agency-contact', get_template_directory_uri() . '/js/contact_me.js', array(), '20151215', true );
+	wp_enqueue_script( 'agency-main', get_template_directory_uri() . '/js/agency.js', array(), '20151215', true );	
+
+	// WP ajax url
+  	wp_localize_script( 'agency-contact', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'marys_crew_house_scripts' );
 
@@ -156,3 +164,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Process contact form.
+ */
+require get_template_directory() . '/inc/contact-form.php';
