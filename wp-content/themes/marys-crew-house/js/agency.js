@@ -49,6 +49,44 @@ jQuery( document ).ready( function( $ ) {
       $(".navbar").removeClass("d-none");
     })
 
+
+    /*
+    Houses Modals
+     */
+    $('.portfolio-link').click(function(){
+        var $modal = $('#portfolioModal');
+        var houseID = $(this).attr('data-house-id');
+
+        $.post(
+          MyAjax.ajaxurl,
+          {
+            action: 'houses_modal',
+            houseID: houseID
+          },
+          function(res) {
+            $modal.find('.modal-body').html(res);
+            //$modal.find('#carouselExampleSlidesOnly').carousel();
+          }
+        );
+
+
+
+        $modal.modal('show');
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     })(jQuery); // End of use strict
 
 

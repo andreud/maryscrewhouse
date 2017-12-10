@@ -314,6 +314,13 @@ header.masthead {
         transform: rotate(90deg);
         background-color: #212529; }
 
+    .portfolio-modal ol.carousel-indicators{
+      bottom: 27px;
+    }
+    .portfolio-modal ol.carousel-indicators li{
+      height: 6px;
+    }
+
 .timeline {
   position: relative;
   padding: 0;

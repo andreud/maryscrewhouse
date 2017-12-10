@@ -168,3 +168,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Process contact form.
  */
 require get_template_directory() . '/inc/contact-form.php';
+
+/**
+ * Houses modal content load via ajax
+ */
+require get_template_directory() . '/inc/houses-modal.php';

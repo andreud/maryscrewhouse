@@ -42,7 +42,7 @@ get_header(); ?>
             ?> 
               
               <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                <a class="portfolio-link" href="#portfolioModal" data-house-id="<?=$house->ID;?>">
                   <div class="portfolio-hover">
                     <div class="portfolio-hover-content">
                       <i class="fa fa-plus fa-3x"></i>
@@ -51,10 +51,8 @@ get_header(); ?>
                   <img class="img-fluid" src="<?= $house_img_url ; ?>" alt="">
                 </a>
                 <div class="portfolio-caption">
-                  <h4><?= $house->post_title;   ?></h4>
-                  <p class="text-muted">
-                    <?= $house->post_content;   ?>
-                  </p>
+                  <h4><?= $house->post_title; ?></h4>
+                  <p class="text-muted"><?= $house->post_content; ?></p>
                 </div>
               </div>
             <?
@@ -68,8 +66,9 @@ get_header(); ?>
 
     <!-- Portfolio Modals -->
 
-    <!-- Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    
+    <!-- Modal 0 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -82,12 +81,7 @@ get_header(); ?>
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">House 1</h2>
-                 
-                  
-                  <!-- <iframe scrolling="no" src="http://tours.obeo.com/?tourid=177107&id=177107&refurl=http://www.maryscrewhouse.com/index.html"  width="734" height="625" ></iframe> -->
-
-                  
+                  <h2 class="text-uppercase">House</h2>
                   <p>Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrupadding-top: 200pxm, reiciendis facere nemo!</p>
                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
@@ -101,69 +95,6 @@ get_header(); ?>
       </div>
     </div>
 
-    <!-- Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">House 2</h2>
-                  
-                  
-                <!--   <iframe scrolling="no" src="http://tours.obeo.com/?tourid=536769&refurl=maryscrewhouse.com"  width="734" height="625" ></iframe> -->
-
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <p>Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">House 3</h2>
-                  
-
-                  <!-- <iframe scrolling="no" src="http://tours.obeo.com/unbranded?tourid=536770"  width="734" height="625" ></iframe> -->
-
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <p>Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Services -->
     <section id="services">
