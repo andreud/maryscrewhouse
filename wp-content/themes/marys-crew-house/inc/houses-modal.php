@@ -75,8 +75,10 @@ function housesModal()
 			  </a>
 		</div>
 	<? 
-	endif; 
-
+	endif; ?>
+	<button class="btn btn-primary" data-dismiss="modal" type="button">
+        <i class="fa fa-times"></i>Close</button>
+	<?
 	die();
 
 }
