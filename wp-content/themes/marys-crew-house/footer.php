@@ -16,12 +16,22 @@
 
 
 	<!-- Contact -->
+  <?php 
+    // Pull content from "Home" Page
+    $home_page_id = 5;
+    //$houses = get_posts(['post_type'=>'house']);
+    $houses = get_field('houses_houses',$home_page_id);
+  ?>
     <section id="contact">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted">To get a quote or with any questions.</h3>
+            <h2 class="section-heading text-uppercase"><?php the_field('contact_heading',$home_page_id); ?></h2>
+            <!-- <h3 class="section-subheading text-muted">To get a quote or with any questions.</h3>
+            <p class="text-muted">Mary's cell: 954-242-1109 / Boys house 1: 954-761-3660 / Girls house 1: 954-761-3661 / maryscrewhouse@yahoo.com</p> -->
+            <div class="text-muted">
+              <?php the_field('contact_content',$home_page_id); ?>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -45,21 +55,22 @@
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6">
-                        <input class="form-control" id="arrival" type="text" placeholder="Arival Date (Optional)" >
+                        <label>Arrival Date (Optional)</label>
+                        <input class="form-control" id="arrival" type="date" placeholder="Arrival Date (Optional)" >
                       </div>
                       <div class="col-sm-6">
-                        <input class="form-control" id="departure" type="text" placeholder="Departure Date (Optional)" >  
+                        <label>Departure Date (Optional)</label>
+                        <input class="form-control" id="departure" type="date" placeholder="Departure Date (Optional)" >  
                       </div>
                     </div>
-                    
                   </div>
 
                   <div class="form-group">
-                    <select class="form-control">
-                      <option value="none">Prefered House (Optional)</option>                      
-                      <option value="house 1">House 1</option>
-                      <option value="house 2">House 2</option>
-                      <option value="house 3">House 3</option>
+                    <select class="form-control" id="prefHouse">
+                      <option value="none">Preferred House (Optional)</option>
+                      <?php foreach ($houses as $key => $house): ?>
+                        <option value="<?= $house->post_name ?>"><?= $house->post_title ?></option>
+                      <?php endforeach ?>                   
                     </select>
                   </div>
 
@@ -87,23 +98,15 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Marys Crew House 2017</span>
+            <span class="copyright">Copyright &copy; Marys Crew House <?= date("Y") ?></span>
           </div>
           <div class="col-md-4">
             <ul class="list-inline social-buttons">
+              
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
+                <!-- https://www.facebook.com/pages/Marys-Crew-House/165630090143660 -->
+                <a href="<? the_field('facebook_url',$home_page_id) ?>">
                   <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
                 </a>
               </li>
             </ul>
@@ -111,7 +114,7 @@
           <div class="col-md-4">
             <ul class="list-inline quicklinks">
               <li class="list-inline-item">
-                <a href="#">Developed by YachtieWorld</a>
+                <a href="http://yachtiepages.com">Developed by YachtieWorld</a>
               </li>
             </ul>
           </div>

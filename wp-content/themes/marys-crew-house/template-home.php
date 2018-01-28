@@ -37,11 +37,13 @@ get_header(); ?>
           
           <? 
             $houses = get_field('houses_houses');
+            $n_houses = count($houses);
+            $house_col_classes = ( $n_houses%2==0 && $n_houses<5) ? 'col-md-6 col-sm-6' : 'col-md-4 col-sm-6' ;
             foreach ($houses as $key => $house) :
-              $house_img_url = get_the_post_thumbnail_url($house->ID);
+              $house_img_url = get_the_post_thumbnail_url($house->ID, 'houses-thumb');
             ?> 
               
-              <div class="col-md-4 col-sm-6 portfolio-item">
+              <div class="<?= $house_col_classes; ?> portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal" data-house-id="<?=$house->ID;?>">
                   <div class="portfolio-hover">
                     <div class="portfolio-hover-content">
